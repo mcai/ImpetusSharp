@@ -61,10 +61,6 @@
     <Compile Include="AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\lib\zedgraph_source_v515\ZedGraph 5.1 %28.net 2%29\source\ZedGraph.csproj">
-      <Project>{2541686B-1673-43BF-AF89-3163945DB009}</Project>
-      <Name>ZedGraph</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MinCai.Simulators.Impetus\MinCai.Simulators.Impetus.csproj">
       <Project>{47C6577B-1CF7-4648-A52C-3636F419E270}</Project>
       <Name>MinCai.Simulators.Impetus</Name>

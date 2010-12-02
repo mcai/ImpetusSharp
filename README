@@ -1,0 +1,51 @@
+--------------------------------
+ImpetusSharp - a driver program written in C# for Multi2Sim
+(version: 0.1 Prerelease)
+--------------------------------
+
+This README briefly describes what Flexim is and how to setup & run ImpetusSharp. For more details, 
+please refer to the ImpetusSharp User Guide under the subdirectory doc/ of the distribution.
+
+== License Information ==
+   Copyright (c) 2010 by Min Cai <itecgo@163.com>
+   
+   This program is free software, licensed under the GPL3.
+   Please, read the license file "COPYING" for further information.
+
+== About ==
+   ImpetusSharp is a driver program written in C# for Multi2Sim.
+
+== Web Site ==   
+   Please obtain the latest Flexim code from http://github.com/mcai/ImpetusSharp.
+
+== Key Features ==
+   Configuration & statistics extraction support of Multi2Sim 2.4.
+   Notes: For information on Multi2Sim, please visit http://www.multi2sim.org/.
+
+== System Requirements ==
+ 1. Make sure that you have a Ubuntu 10.10 linux machine.
+   Other popular linux distros may work as well if you are lucky.
+ 
+ 2. Make sure that you have the latest Mono and MonoDevelop installed.
+   If not, type the following command to install them:
+   'sudo apt-get install mono monodevelop'
+
+== How to Build and Run Flexim ==
+ 1. Unpack the zip or tar file containing the Flexim source.
+ 
+ 2. In the main directory of the distribution (the one that this file is in), you can
+    edit and build Impetus source code by opening the .NET solution file within MonoDevelop.
+    Note: By default, the flexim binary is placed in the MinCai.Simulators.Impetus.Demo1/bin/Debug folder.
+
+ 3. In order to run the simulator, you must create a few simulation configuration files.
+    Some samples will be provided with ImpetusSharp to make it easy to use.
+
+
+Good Luck!
+
+Min Cai
+
+School of Computer Science and Technology
+Beijing Institute of Technology
+Beijing, China
+<itecgo@163.com>
