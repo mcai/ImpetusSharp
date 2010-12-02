@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZedGraph", "lib\zedgraph_source_v515\ZedGraph 5.1 (.net 2)\source\ZedGraph.csproj", "{2541686B-1673-43BF-AF89-3163945DB009}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinCai.Simulators.Impetus", "MinCai.Simulators.Impetus\MinCai.Simulators.Impetus.csproj", "{47C6577B-1CF7-4648-A52C-3636F419E270}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinCai.Simulators.Impetus.Demo1", "MinCai.Simulators.Impetus.Demo1\MinCai.Simulators.Impetus.Demo1.csproj", "{314BA607-F35E-4953-B1ED-C12F36C7414A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2541686B-1673-43BF-AF89-3163945DB009}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2541686B-1673-43BF-AF89-3163945DB009}.Debug|x86.Build.0 = Debug|Any CPU
+		{2541686B-1673-43BF-AF89-3163945DB009}.Release|x86.ActiveCfg = Release|Any CPU
+		{2541686B-1673-43BF-AF89-3163945DB009}.Release|x86.Build.0 = Release|Any CPU
+		{314BA607-F35E-4953-B1ED-C12F36C7414A}.Debug|x86.ActiveCfg = Debug|x86
+		{314BA607-F35E-4953-B1ED-C12F36C7414A}.Debug|x86.Build.0 = Debug|x86
+		{314BA607-F35E-4953-B1ED-C12F36C7414A}.Release|x86.ActiveCfg = Release|x86
+		{314BA607-F35E-4953-B1ED-C12F36C7414A}.Release|x86.Build.0 = Release|x86
+		{47C6577B-1CF7-4648-A52C-3636F419E270}.Debug|x86.ActiveCfg = Debug|x86
+		{47C6577B-1CF7-4648-A52C-3636F419E270}.Debug|x86.Build.0 = Debug|x86
+		{47C6577B-1CF7-4648-A52C-3636F419E270}.Release|x86.ActiveCfg = Release|x86
+		{47C6577B-1CF7-4648-A52C-3636F419E270}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = MinCai.Simulators.Impetus.Demo1\MinCai.Simulators.Impetus.Demo1.csproj
+		Policies = $0
+		$0.TextStylePolicy = $1
+		$1.FileWidth = 120
+		$1.TabWidth = 4
+		$1.inheritsSet = Mono
+		$1.inheritsScope = text/plain
+		$1.scope = text/plain
+		$0.TextStylePolicy = $2
+		$2.TabWidth = 2
+		$2.inheritsSet = Mono
+		$2.inheritsScope = text/plain
+		$2.scope = text/x-csharp
+		$0.CSharpFormattingPolicy = $3
+		$3.inheritsSet = Mono
+		$3.inheritsScope = text/x-csharp
+		$3.scope = text/x-csharp
+		$0.StandardHeader = $4
+		$4.Text = 
+		$4.inheritsSet = Apache2License
+	EndGlobalSection
+EndGlobal

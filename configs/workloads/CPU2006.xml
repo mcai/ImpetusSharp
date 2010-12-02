@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<WorkloadSet title="CPU2006">
+   <Workload title="416.gamess" cwd="/home/itecgo/Julie/Benchmarks/spec2006-x86-bin/416.gamess" stdin="triazolium.config" exe="gamess_base.i386" argsLiteral="" stdout="" numThreadsNeeded = "1">
+   </Workload>
+   <Workload title="999.specrand" cwd="/home/itecgo/Julie/Benchmarks/spec2006-x86-bin/999.specrand" stdin="" exe="specrand_base.i386" argsLiteral="1255432124 234923" stdout="" numThreadsNeeded = "1">
+   </Workload>
+   <Workload title="481.wrf" cwd="/home/itecgo/Julie/Benchmarks/spec2006-x86-bin/481.wrf" stdin="" exe="wrf_base.i386" argsLiteral="" stdout="" numThreadsNeeded = "1">
+   </Workload>
+   <Workload title="410.bwaves" cwd="/home/itecgo/Julie/Benchmarks/spec2006-x86-bin/410.bwaves" stdin="" exe="bwaves_base.i386" argsLiteral="" stdout="" numThreadsNeeded = "1">
+   </Workload>
+   <Workload title="458.sjeng" cwd="/home/itecgo/Julie/Benchmarks/spec2006-x86-bin/458.sjeng" stdin="" exe="sjeng_base.i386" argsLiteral="ref.txt" stdout="" numThreadsNeeded = "1">
+   </Workload>
+   <Workload title="434.zeusmp" cwd="/home/itecgo/Julie/Benchmarks/spec2006-x86-bin/434.zeusmp" stdin="" exe="zeusmp_base.i386" argsLiteral="" stdout="" numThreadsNeeded = "1">
+   </Workload>
+   <Workload title="459.GemsFDTD" cwd="/home/itecgo/Julie/Benchmarks/spec2006-x86-bin/459.GemsFDTD" stdin="" exe="GemsFDTD_base.i386" argsLiteral="" stdout="" numThreadsNeeded = "1">
+   </Workload>
+   <Workload title="470.lbm" cwd="/home/itecgo/Julie/Benchmarks/spec2006-x86-bin/470.lbm" stdin="" exe="lbm_base.i386" argsLiteral="3000 reference.dat 0 0 100_100_130_ldc.of" stdout="" numThreadsNeeded = "1">
+   </Workload>
+   <Workload title="403.gcc" cwd="/home/itecgo/Julie/Benchmarks/spec2006-x86-bin/403.gcc" stdin="" exe="gcc_base.i386" argsLiteral="166.i -o 166.s" stdout="" numThreadsNeeded = "1">
+   </Workload>
+   <Workload title="998.specrand" cwd="/home/itecgo/Julie/Benchmarks/spec2006-x86-bin/998.specrand" stdin="" exe="specrand_base.i386" argsLiteral="1255432124 234923" stdout="" numThreadsNeeded = "1">
+   </Workload>
+   <Workload title="444.namd" cwd="/home/itecgo/Julie/Benchmarks/spec2006-x86-bin/444.namd" stdin="" exe="namd_base.i386" argsLiteral="--input namd.input --iterations 38 --output namd.out" stdout="" numThreadsNeeded = "1">
+   </Workload>
+   <Workload title="454.calculix" cwd="/home/itecgo/Julie/Benchmarks/spec2006-x86-bin/454.calculix" stdin="" exe="calculix_base.i386" argsLiteral="-i hyperviscoplastic" stdout="" numThreadsNeeded = "1">
+   </Workload>
+   <Workload title="464.h264ref" cwd="/home/itecgo/Julie/Benchmarks/spec2006-x86-bin/464.h264ref" stdin="" exe="h264ref_base.i386" argsLiteral="-d sss_encoder_main.cfg" stdout="" numThreadsNeeded = "1">
+   </Workload>
+   <Workload title="400.perlbench" cwd="/home/itecgo/Julie/Benchmarks/spec2006-x86-bin/400.perlbench" stdin="" exe="perlbench_base.i386" argsLiteral="checkspam.pl 2500 5 25 11 150 1 1 1 1" stdout="" numThreadsNeeded = "1">
+   </Workload>
+   <Workload title="437.leslie3d" cwd="/home/itecgo/Julie/Benchmarks/spec2006-x86-bin/437.leslie3d" stdin="leslie3d.in" exe="leslie3d_base.i386" argsLiteral="" stdout="" numThreadsNeeded = "1">
+   </Workload>
+   <Workload title="445.gobmk" cwd="/home/itecgo/Julie/Benchmarks/spec2006-x86-bin/445.gobmk" stdin="trevord.tst" exe="gobmk_base.i386" argsLiteral="--quiet --mode gtp" stdout="" numThreadsNeeded = "1">
+   </Workload>
+   <Workload title="436.cactusADM" cwd="/home/itecgo/Julie/Benchmarks/spec2006-x86-bin/436.cactusADM" stdin="" exe="cactusADM_base.i386" argsLiteral="benchADM.par" stdout="" numThreadsNeeded = "1">
+   </Workload>
+   <Workload title="435.gromacs" cwd="/home/itecgo/Julie/Benchmarks/spec2006-x86-bin/435.gromacs" stdin="" exe="gromacs_base.i386" argsLiteral="-silent -deffnm gromacs -nice 0" stdout="" numThreadsNeeded = "1">
+   </Workload>
+   <Workload title="465.tonto" cwd="/home/itecgo/Julie/Benchmarks/spec2006-x86-bin/465.tonto" stdin="" exe="tonto_base.i386" argsLiteral="" stdout="" numThreadsNeeded = "1">
+   </Workload>
+   <Workload title="482.sphinx3" cwd="/home/itecgo/Julie/Benchmarks/spec2006-x86-bin/482.sphinx3" stdin="" exe="sphinx3_base.i386" argsLiteral="ctlfile . args.an4" stdout="" numThreadsNeeded = "1">
+   </Workload>
+   <Workload title="450.soplex" cwd="/home/itecgo/Julie/Benchmarks/spec2006-x86-bin/450.soplex" stdin="" exe="soplex_base.i386" argsLiteral="-m3500 ref.mps" stdout="" numThreadsNeeded = "1">
+   </Workload>
+   <Workload title="462.libquantum" cwd="/home/itecgo/Julie/Benchmarks/spec2006-x86-bin/462.libquantum" stdin="" exe="libquantum_base.i386" argsLiteral="1397 8" stdout="" numThreadsNeeded = "1">
+   </Workload>
+   <Workload title="447.dealII" cwd="/home/itecgo/Julie/Benchmarks/spec2006-x86-bin/447.dealII" stdin="" exe="dealII_base.i386" argsLiteral="23" stdout="" numThreadsNeeded = "1">
+   </Workload>
+   <Workload title="401.bzip2" cwd="/home/itecgo/Julie/Benchmarks/spec2006-x86-bin/401.bzip2" stdin="" exe="bzip2_base.i386" argsLiteral="input.source 280" stdout="" numThreadsNeeded = "1">
+   </Workload>
+   <Workload title="473.astar" cwd="/home/itecgo/Julie/Benchmarks/spec2006-x86-bin/473.astar" stdin="" exe="astar_base.i386" argsLiteral="rivers.cfg" stdout="" numThreadsNeeded = "1">
+   </Workload>
+   <Workload title="429.mcf" cwd="/home/itecgo/Julie/Benchmarks/spec2006-x86-bin/429.mcf" stdin="" exe="mcf_base.i386" argsLiteral="inp.in" stdout="" numThreadsNeeded = "1">
+   </Workload>
+   <Workload title="456.hmmer" cwd="/home/itecgo/Julie/Benchmarks/spec2006-x86-bin/456.hmmer" stdin="" exe="hmmer_base.i386" argsLiteral="--fixed 0 --mean 500 --num 500000 --sd 350 --seed 0 retro.hmm" stdout="" numThreadsNeeded = "1">
+   </Workload>
+   <Workload title="471.omnetpp" cwd="/home/itecgo/Julie/Benchmarks/spec2006-x86-bin/471.omnetpp" stdin="" exe="omnetpp_base.i386" argsLiteral="omnetpp.ini" stdout="" numThreadsNeeded = "1">
+   </Workload>
+   <Workload title="433.milc" cwd="/home/itecgo/Julie/Benchmarks/spec2006-x86-bin/433.milc" stdin="su3imp.in" exe="milc_base.i386" argsLiteral="" stdout="" numThreadsNeeded = "1">
+   </Workload>
+   <Workload title="453.povray" cwd="/home/itecgo/Julie/Benchmarks/spec2006-x86-bin/453.povray" stdin="" exe="povray_base.i386" argsLiteral="SPEC-Workload-ref.ini" stdout="" numThreadsNeeded = "1">
+   </Workload>
+   <Workload title="483.xalancbmk" cwd="/home/itecgo/Julie/Benchmarks/spec2006-x86-bin/483.xalancbmk" stdin="" exe="xalancbmk_base.i386" argsLiteral="-v t5.xml xalanc.xsl" stdout="" numThreadsNeeded = "1">
+   </Workload>
+</WorkloadSet>

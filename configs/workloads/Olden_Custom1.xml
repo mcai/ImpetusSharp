@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<WorkloadSet title="Olden_Custom1">
+   <Workload title="mst_prepush" cwd="/home/itecgo/CEMI/08_Sandbox/Benchmarks/Olden/mst/prepush" stdin="" exe="mst" argsLiteral="10000 1" stdout="" numThreadsNeeded = "2">
+   </Workload>
+   <Workload title="mst_original" cwd="/home/itecgo/CEMI/08_Sandbox/Benchmarks/Olden/mst/original" stdin="" exe="mst" argsLiteral="10000 1" stdout="" numThreadsNeeded = "1">
+   </Workload>
+   <Workload title="em3d_original" cwd="/home/itecgo/CEMI/08_Sandbox/Benchmarks/Olden/em3d/original" stdin="" exe="em3d" argsLiteral="100 100 75 1" stdout="" numThreadsNeeded = "1">
+   </Workload>
+   <Workload title="em3d_prepush" cwd="/home/itecgo/CEMI/08_Sandbox/Benchmarks/Olden/em3d/prepush" stdin="" exe="em3d" argsLiteral="100 100 75 1" stdout="" numThreadsNeeded = "2">
+   </Workload>
+</WorkloadSet>
