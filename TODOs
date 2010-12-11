@@ -1,0 +1,7 @@
+TODOs:
+
+	1. Add ExperimentConfig:
+		list of simulations
+		number of hw threads used max?
+		
+	2. Remove path settings in SimulationConfig to ExperimentConfig.

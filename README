@@ -37,7 +37,7 @@ please refer to the ImpetusSharp User Guide under the subdirectory doc/ of the d
     edit and build Impetus source code by opening the .NET solution file within MonoDevelop.
     Note: By default, the flexim binary is placed in the MinCai.Simulators.Impetus.Demo1/bin/Debug folder.
 
- 3. In order to run the simulator, you must create a few simulation configuration files.
+ 3. In order to run the simulator driver, you must create a few simulation configuration files.
     Some samples will be provided with ImpetusSharp to make it easy to use.
 
 

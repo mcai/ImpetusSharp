@@ -6,7 +6,7 @@
     <ProductVersion>8.0.50727</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{47C6577B-1CF7-4648-A52C-3636F419E270}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <OutputType>Exe</OutputType>
     <RootNamespace>MinCai.Simulators.Impetus</RootNamespace>
     <AssemblyName>MinCai.Simulators.Impetus</AssemblyName>
   </PropertyGroup>
@@ -42,6 +42,7 @@
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="Simulation.cs" />
     <Compile Include="Utils.cs" />
+    <Compile Include="Main.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>

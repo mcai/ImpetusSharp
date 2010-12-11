@@ -358,96 +358,95 @@ namespace MinCai.Simulators.Impetus
 			public string Pipeline { get; set; }
 			public string Error { get; set; }
 		}
-		
+
 		public sealed class JulieConfig
 		{
 			public sealed class CtxToCpuMapping
 			{
-				public sealed class Serializer: XmlConfigSerializer<CtxToCpuMapping>
+				public sealed class Serializer : XmlConfigSerializer<CtxToCpuMapping>
 				{
-					public Serializer()
+					public Serializer ()
 					{
 					}
-					
+
 					public override XmlConfig Save (CtxToCpuMapping ctxToCpuMapping)
 					{
-						XmlConfig xmlConfig = new XmlConfig("CtxToCpuMapping");
+						XmlConfig xmlConfig = new XmlConfig ("CtxToCpuMapping");
 						xmlConfig["contextId"] = ctxToCpuMapping.ContextId + "";
 						xmlConfig["cpuId"] = ctxToCpuMapping.CpuId + "";
 						
 						return xmlConfig;
 					}
-					
+
 					public override CtxToCpuMapping Load (XmlConfig xmlConfig)
 					{
-						uint contextId = uint.Parse(xmlConfig["contextId"]);
-						uint cpuId = uint.Parse(xmlConfig["cpuId"]);
+						uint contextId = uint.Parse (xmlConfig["contextId"]);
+						uint cpuId = uint.Parse (xmlConfig["cpuId"]);
 						
-						CtxToCpuMapping ctxToCpuMapping = new CtxToCpuMapping(contextId, cpuId);
+						CtxToCpuMapping ctxToCpuMapping = new CtxToCpuMapping (contextId, cpuId);
 						
 						return ctxToCpuMapping;
 					}
-					
-					public static Serializer SingleInstance = new Serializer();
+
+					public static Serializer SingleInstance = new Serializer ();
 				}
-				
-				public CtxToCpuMapping(uint contextId, uint cpuId)
+
+				public CtxToCpuMapping (uint contextId, uint cpuId)
 				{
 					this.ContextId = contextId;
 					this.CpuId = cpuId;
 				}
-				
-				public uint ContextId {get;set;}
-				public uint CpuId {get; set;}
+
+				public uint ContextId { get; set; }
+				public uint CpuId { get; set; }
 			}
-			
-			public sealed class Serializer: XmlConfigSerializer<JulieConfig>
+
+			public sealed class Serializer : XmlConfigSerializer<JulieConfig>
 			{
-				public Serializer()
+				public Serializer ()
 				{
 				}
-				
+
 				public override XmlConfig Save (JulieConfig julieConfig)
 				{
-					XmlConfig xmlConfig = new XmlConfig("JulieConfig");
+					XmlConfig xmlConfig = new XmlConfig ("JulieConfig");
 					
-					xmlConfig.Entries.Add(SaveList<CtxToCpuMapping> ("CtxToCpuMappings", julieConfig.CtxToCpuMappings, new SaveEntryDelegate<CtxToCpuMapping>(CtxToCpuMapping.Serializer.SingleInstance.Save)));
+					xmlConfig.Entries.Add (SaveList<CtxToCpuMapping> ("CtxToCpuMappings", julieConfig.CtxToCpuMappings, new SaveEntryDelegate<CtxToCpuMapping> (CtxToCpuMapping.Serializer.SingleInstance.Save)));
 					
 					return xmlConfig;
 				}
-				
+
 				public override JulieConfig Load (XmlConfig xmlConfig)
 				{
-					List<CtxToCpuMapping> ctxToCpuMappings = LoadList<CtxToCpuMapping>(xmlConfig.Entries[0], new LoadEntryDelegate<CtxToCpuMapping>(CtxToCpuMapping.Serializer.SingleInstance.Load));
+					List<CtxToCpuMapping> ctxToCpuMappings = LoadList<CtxToCpuMapping> (xmlConfig.Entries[0], new LoadEntryDelegate<CtxToCpuMapping> (CtxToCpuMapping.Serializer.SingleInstance.Load));
 					
-					JulieConfig julieConfig = new JulieConfig();
+					JulieConfig julieConfig = new JulieConfig ();
 					julieConfig.CtxToCpuMappings = ctxToCpuMappings;
 					
 					return julieConfig;
 				}
-				
-				public static Serializer SingleInstance = new Serializer();
+
+				public static Serializer SingleInstance = new Serializer ();
 			}
-			
+
 			public JulieConfig ()
 			{
-				this.CtxToCpuMappings = new List<CtxToCpuMapping>();
+				this.CtxToCpuMappings = new List<CtxToCpuMapping> ();
 			}
-			
+
 			public void WriteTo (string fileName)
 			{
-				StreamWriter sw = new StreamWriter(fileName);
+				StreamWriter sw = new StreamWriter (fileName);
 				
-				foreach(CtxToCpuMapping mapping in this.CtxToCpuMappings)
-				{
-					sw.WriteLine(mapping.ContextId + "," + mapping.CpuId);
+				foreach (CtxToCpuMapping mapping in this.CtxToCpuMappings) {
+					sw.WriteLine (mapping.ContextId + "," + mapping.CpuId);
 				}
 				
-				sw.Close();
+				sw.Close ();
 			}
-			
-			public List<CtxToCpuMapping> CtxToCpuMappings {get;set;}
-			
+
+			public List<CtxToCpuMapping> CtxToCpuMappings { get; set; }
+
 			public static string CTX_TO_MAPPINGS_FILE_NAME = "ctx_to_cpu_mappings.csv";
 		}
 
@@ -959,7 +958,7 @@ namespace MinCai.Simulators.Impetus
 				int i = 0;
 				
 				DebugConfig dbg = DebugConfig.Serializer.SingleInstance.Load (xmlConfig.Entries[i++]);
-				JulieConfig julie = JulieConfig.Serializer.SingleInstance.Load(xmlConfig.Entries[i++]);
+				JulieConfig julie = JulieConfig.Serializer.SingleInstance.Load (xmlConfig.Entries[i++]);
 				ReportConfig report = ReportConfig.Serializer.SingleInstance.Load (xmlConfig.Entries[i++]);
 				BpredConfig bpred = BpredConfig.Serializer.SingleInstance.Load (xmlConfig.Entries[i++]);
 				TCacheConfig tCache = TCacheConfig.Serializer.SingleInstance.Load (xmlConfig.Entries[i++]);
@@ -1056,7 +1055,7 @@ namespace MinCai.Simulators.Impetus
 			
 			this.Dbg = new DebugConfig ();
 			
-			this.Julie = new JulieConfig();
+			this.Julie = new JulieConfig ();
 			
 			this.Report = new ReportConfig ();
 			
@@ -1245,8 +1244,8 @@ namespace MinCai.Simulators.Impetus
 		public uint FastfwdInsts { get; set; }
 
 		public DebugConfig Dbg { get; set; }
-		
-		public JulieConfig Julie {get;set;}
+
+		public JulieConfig Julie { get; set; }
 
 		public ReportConfig Report { get; set; }
 
@@ -1368,7 +1367,7 @@ namespace MinCai.Simulators.Impetus
 				{
 					XmlConfig xmlConfig = new XmlConfig ("CacheGeometry");
 					xmlConfig["name"] = cacheGeometry.Name;
-					xmlConfig["sets"] = cacheGeometry.Sets + "";
+					xmlConfig["size"] = cacheGeometry.Size + "";
 					xmlConfig["assoc"] = cacheGeometry.Assoc + "";
 					xmlConfig["blockSize"] = cacheGeometry.BlockSize + "";
 					xmlConfig["readPorts"] = cacheGeometry.ReadPorts + "";
@@ -1382,7 +1381,7 @@ namespace MinCai.Simulators.Impetus
 				public override CacheGeometry Load (XmlConfig xmlConfig)
 				{
 					string name = xmlConfig["name"];
-					uint sets = uint.Parse (xmlConfig["sets"]);
+					uint size = uint.Parse (xmlConfig["size"]);
 					uint assoc = uint.Parse (xmlConfig["assoc"]);
 					uint blockSize = uint.Parse (xmlConfig["blockSize"]);
 					uint readPorts = uint.Parse (xmlConfig["readPorts"]);
@@ -1390,17 +1389,17 @@ namespace MinCai.Simulators.Impetus
 					uint latency = uint.Parse (xmlConfig["latency"]);
 					Policies policy = EnumUtils.Parse<Policies> (xmlConfig["policy"]);
 					
-					CacheGeometry cacheGeometry = new CacheGeometry (name, sets, assoc, blockSize, readPorts, writePorts, latency, policy);
+					CacheGeometry cacheGeometry = new CacheGeometry (name, size, assoc, blockSize, readPorts, writePorts, latency, policy);
 					return cacheGeometry;
 				}
 
 				public static Serializer SingleInstance = new Serializer ();
 			}
 
-			public CacheGeometry (string name, uint sets, uint assoc, uint blockSize, uint readPorts, uint writePorts, uint latency, Policies policy)
+			public CacheGeometry (string name, uint size, uint assoc, uint blockSize, uint readPorts, uint writePorts, uint latency, Policies policy)
 			{
 				this.Name = name;
-				this.Sets = sets;
+				this.Size = size;
 				this.Assoc = assoc;
 				this.BlockSize = blockSize;
 				this.ReadPorts = readPorts;
@@ -1409,14 +1408,18 @@ namespace MinCai.Simulators.Impetus
 				this.Policy = policy;
 			}
 
-			public string Name { get; set; }
-			public uint Sets { get; set; }
-			public uint Assoc { get; set; }
-			public uint BlockSize { get; set; }
-			public uint ReadPorts { get; set; }
-			public uint WritePorts { get; set; }
-			public uint Latency { get; set; }
-			public Policies Policy { get; set; }
+			public uint Sets {
+				get { return this.Size / this.Assoc / this.BlockSize; }
+			}
+
+			public string Name { get; private set; }
+			public uint Size { get; private set; }
+			public uint Assoc { get; private set; }
+			public uint BlockSize { get; private set; }
+			public uint ReadPorts { get; private set; }
+			public uint WritePorts { get; private set; }
+			public uint Latency { get; private set; }
+			public Policies Policy { get; private set; }
 		}
 
 		public sealed class NetConfig
@@ -1480,12 +1483,12 @@ namespace MinCai.Simulators.Impetus
 
 		public interface HiConnectable
 		{
-			NetConfig HiNet { get; set; }
+			string HiNetName { get; set; }
 		}
 
 		public interface LoConnectable
 		{
-			NetConfig LoNet { get; set; }
+			string LoNetName { get; set; }
 		}
 
 		public sealed class CacheConfig : HiConnectable, LoConnectable
@@ -1500,10 +1503,9 @@ namespace MinCai.Simulators.Impetus
 				{
 					XmlConfig xmlConfig = new XmlConfig ("CacheConfig");
 					xmlConfig["name"] = cacheConfig.Name;
-					
-					xmlConfig.Entries.Add (CacheGeometry.Serializer.SingleInstance.Save (cacheConfig.Geometry));
-					xmlConfig.Entries.Add (NetConfig.Serializer.SingleInstance.Save (cacheConfig.HiNet));
-					xmlConfig.Entries.Add (NetConfig.Serializer.SingleInstance.Save (cacheConfig.LoNet));
+					xmlConfig["geometryName"] = cacheConfig.GeometryName;
+					xmlConfig["hiNetName"] = cacheConfig.HiNetName;
+					xmlConfig["loNetName"] = cacheConfig.LoNetName;
 					
 					return xmlConfig;
 				}
@@ -1511,30 +1513,29 @@ namespace MinCai.Simulators.Impetus
 				public override CacheConfig Load (XmlConfig xmlConfig)
 				{
 					string name = xmlConfig["name"];
+					string geometryName = xmlConfig["geometryName"];
+					string hiNetName = xmlConfig["hiNetName"];
+					string loNetName = xmlConfig["loNetName"];
 					
-					CacheGeometry geometry = CacheGeometry.Serializer.SingleInstance.Load (xmlConfig.Entries[0]);
-					NetConfig hiNet = NetConfig.Serializer.SingleInstance.Load (xmlConfig.Entries[1]);
-					NetConfig loNet = NetConfig.Serializer.SingleInstance.Load (xmlConfig.Entries[2]);
-					
-					CacheConfig cacheConfig = new CacheConfig (name, geometry, hiNet, loNet);
+					CacheConfig cacheConfig = new CacheConfig (name, geometryName, hiNetName, loNetName);
 					return cacheConfig;
 				}
 
 				public static Serializer SingleInstance = new Serializer ();
 			}
 
-			public CacheConfig (string name, CacheGeometry geometry, NetConfig hiNet, NetConfig loNet)
+			public CacheConfig (string name, string geometryName, string hiNetName, string loNetName)
 			{
 				this.Name = name;
-				this.Geometry = geometry;
-				this.HiNet = hiNet;
-				this.LoNet = loNet;
+				this.GeometryName = geometryName;
+				this.HiNetName = hiNetName;
+				this.LoNetName = loNetName;
 			}
 
-			public string Name { get; set; }
-			public CacheGeometry Geometry { get; set; }
-			public NetConfig HiNet { get; set; }
-			public NetConfig LoNet { get; set; }
+			public string Name { get; private set; }
+			public string GeometryName { get; private set; }
+			public string HiNetName { get; set; }
+			public string LoNetName { get; set; }
 		}
 
 		public sealed class MainMemoryConfig : HiConnectable
@@ -1550,8 +1551,7 @@ namespace MinCai.Simulators.Impetus
 					XmlConfig xmlConfig = new XmlConfig ("MainMemoryConfig");
 					xmlConfig["blockSize"] = mainMemoryConfig.BlockSize + "";
 					xmlConfig["latency"] = mainMemoryConfig.Latency + "";
-					
-					xmlConfig.Entries.Add (NetConfig.Serializer.SingleInstance.Save (mainMemoryConfig.HiNet));
+					xmlConfig["hiNetName"] = mainMemoryConfig.HiNetName;
 					
 					return xmlConfig;
 				}
@@ -1560,26 +1560,25 @@ namespace MinCai.Simulators.Impetus
 				{
 					uint blockSize = uint.Parse (xmlConfig["blockSize"]);
 					uint latency = uint.Parse (xmlConfig["latency"]);
+					string hiNetName = xmlConfig["hiNetName"];
 					
-					NetConfig hiNet = NetConfig.Serializer.SingleInstance.Load (xmlConfig.Entries[0]);
-					
-					MainMemoryConfig mainMemoryConfig = new MainMemoryConfig (blockSize, latency, hiNet);
+					MainMemoryConfig mainMemoryConfig = new MainMemoryConfig (blockSize, latency, hiNetName);
 					return mainMemoryConfig;
 				}
 
 				public static Serializer SingleInstance = new Serializer ();
 			}
 
-			public MainMemoryConfig (uint blockSize, uint latency, NetConfig hiNet)
+			public MainMemoryConfig (uint blockSize, uint latency, string hiNetName)
 			{
 				this.BlockSize = blockSize;
 				this.Latency = latency;
-				this.HiNet = hiNet;
+				this.HiNetName = hiNetName;
 			}
 
 			public uint BlockSize { get; set; }
 			public uint Latency { get; set; }
-			public NetConfig HiNet { get; set; }
+			public string HiNetName { get; set; }
 		}
 
 		public sealed class NodeConfig
@@ -1596,9 +1595,8 @@ namespace MinCai.Simulators.Impetus
 					xmlConfig["name"] = nodeConfig.Name;
 					xmlConfig["core"] = nodeConfig.Core + "";
 					xmlConfig["thread"] = nodeConfig.Thread + "";
-					
-					xmlConfig.Entries.Add (CacheConfig.Serializer.SingleInstance.Save (nodeConfig.ICache));
-					xmlConfig.Entries.Add (CacheConfig.Serializer.SingleInstance.Save (nodeConfig.DCache));
+					xmlConfig["iCacheName"] = nodeConfig.ICacheName;
+					xmlConfig["dCacheName"] = nodeConfig.DCacheName;
 					
 					return xmlConfig;
 				}
@@ -1608,31 +1606,30 @@ namespace MinCai.Simulators.Impetus
 					string name = xmlConfig["name"];
 					uint core = uint.Parse (xmlConfig["core"]);
 					uint thread = uint.Parse (xmlConfig["thread"]);
+					string iCacheName = xmlConfig["iCacheName"];
+					string dCacheName = xmlConfig["dCacheName"];
 					
-					CacheConfig iCache = CacheConfig.Serializer.SingleInstance.Load (xmlConfig.Entries[0]);
-					CacheConfig dCache = CacheConfig.Serializer.SingleInstance.Load (xmlConfig.Entries[1]);
-					
-					NodeConfig nodeConfig = new NodeConfig (name, core, thread, iCache, dCache);
+					NodeConfig nodeConfig = new NodeConfig (name, core, thread, iCacheName, dCacheName);
 					return nodeConfig;
 				}
 
 				public static Serializer SingleInstance = new Serializer ();
 			}
 
-			public NodeConfig (string name, uint core, uint thread, CacheConfig iCache, CacheConfig dCache)
+			public NodeConfig (string name, uint core, uint thread, string iCacheName, string dCacheName)
 			{
 				this.Name = name;
 				this.Core = core;
 				this.Thread = thread;
-				this.ICache = iCache;
-				this.DCache = dCache;
+				this.ICacheName = iCacheName;
+				this.DCacheName = dCacheName;
 			}
 
 			public string Name { get; set; }
 			public uint Core { get; set; }
 			public uint Thread { get; set; }
-			public CacheConfig ICache { get; set; }
-			public CacheConfig DCache { get; set; }
+			public string ICacheName { get; set; }
+			public string DCacheName { get; set; }
 		}
 
 		public sealed class TlbConfig
@@ -1756,15 +1753,15 @@ namespace MinCai.Simulators.Impetus
 				IniFile.Section section = new IniFile.Section ("Cache " + cache.Name);
 				iniFile.Register (section);
 				
-				section.Register (new IniFile.Property ("Geometry", cache.Geometry.Name));
-				section.Register (new IniFile.Property ("HiNet", cache.HiNet != null ? cache.HiNet.Name : ""));
-				section.Register (new IniFile.Property ("loNet", cache.LoNet != null ? cache.LoNet.Name : ""));
+				section.Register (new IniFile.Property ("Geometry", cache.GeometryName));
+				section.Register (new IniFile.Property ("HiNet", cache.HiNetName));
+				section.Register (new IniFile.Property ("loNet", cache.LoNetName));
 			}
 			
 			IniFile.Section sectionMainMemory = new IniFile.Section ("MainMemory");
 			iniFile.Register (sectionMainMemory);
 			
-			sectionMainMemory.Register (new IniFile.Property ("HiNet", this.MainMemory.HiNet != null ? this.MainMemory.HiNet.Name : ""));
+			sectionMainMemory.Register (new IniFile.Property ("HiNet", this.MainMemory.HiNetName));
 			sectionMainMemory.Register (new IniFile.Property ("BlockSize", this.MainMemory.BlockSize + ""));
 			sectionMainMemory.Register (new IniFile.Property ("Latency", this.MainMemory.Latency + ""));
 			
@@ -1774,8 +1771,8 @@ namespace MinCai.Simulators.Impetus
 				
 				section.Register (new IniFile.Property ("Core", node.Core + ""));
 				section.Register (new IniFile.Property ("Thread", node.Thread + ""));
-				section.Register (new IniFile.Property ("DCache", node.DCache.Name));
-				section.Register (new IniFile.Property ("ICache", node.ICache.Name));
+				section.Register (new IniFile.Property ("DCache", node.DCacheName));
+				section.Register (new IniFile.Property ("ICache", node.ICacheName));
 			}
 			
 			foreach (NetConfig net in this.Nets) {
@@ -1806,8 +1803,8 @@ namespace MinCai.Simulators.Impetus
 
 		public static void connect (LoConnectable nodeA, HiConnectable nodeB, NetConfig net)
 		{
-			nodeA.LoNet = net;
-			nodeB.HiNet = net;
+			nodeA.LoNetName = net.Name;
+			nodeB.HiNetName = net.Name;
 		}
 
 		public static CacheSystemConfig Q6600 ()
@@ -1838,10 +1835,10 @@ namespace MinCai.Simulators.Impetus
 			cacheSystemConfig.CacheGeometries.Add (geometryL2);
 			
 			//l2 cache
-			CacheConfig cacheL2_0 = new CacheConfig ("l2-0", geometryL2, null, null);
+			CacheConfig cacheL2_0 = new CacheConfig ("l2-0", geometryL2.Name, null, null);
 			cacheSystemConfig.Caches.Add (cacheL2_0);
 			
-			CacheConfig cacheL2_1 = new CacheConfig ("l2-1", geometryL2, null, null);
+			CacheConfig cacheL2_1 = new CacheConfig ("l2-1", geometryL2.Name, null, null);
 			cacheSystemConfig.Caches.Add (cacheL2_1);
 			
 			//connect l2 cache with main memory
@@ -1850,8 +1847,8 @@ namespace MinCai.Simulators.Impetus
 			
 			//l1 cache
 			for (uint core = 0; core < 2; core++) {
-				CacheConfig cacheDL1 = new CacheConfig ("dl1-" + core, geometryL1, null, null);
-				CacheConfig cacheIL1 = new CacheConfig ("il1-" + core, geometryL1, null, null);
+				CacheConfig cacheDL1 = new CacheConfig ("dl1-" + core, geometryL1.Name, null, null);
+				CacheConfig cacheIL1 = new CacheConfig ("il1-" + core, geometryL1.Name, null, null);
 				
 				cacheSystemConfig.Caches.Add (cacheDL1);
 				cacheSystemConfig.Caches.Add (cacheIL1);
@@ -1861,14 +1858,14 @@ namespace MinCai.Simulators.Impetus
 				CacheSystemConfig.connect (cacheIL1, cacheL2_0, net0);
 				
 				//connect node with l1 cache
-				NodeConfig node = new NodeConfig (core + "", core, 0, cacheIL1, cacheDL1);
+				NodeConfig node = new NodeConfig (core + "", core, 0, cacheIL1.Name, cacheDL1.Name);
 				cacheSystemConfig.Nodes.Add (node);
 			}
 			
 			//l1 cache
 			for (uint core = 2; core < 4; core++) {
-				CacheConfig cacheDL1 = new CacheConfig ("dl1-" + core, geometryL1, null, null);
-				CacheConfig cacheIL1 = new CacheConfig ("il1-" + core, geometryL1, null, null);
+				CacheConfig cacheDL1 = new CacheConfig ("dl1-" + core, geometryL1.Name, null, null);
+				CacheConfig cacheIL1 = new CacheConfig ("il1-" + core, geometryL1.Name, null, null);
 				
 				cacheSystemConfig.Caches.Add (cacheDL1);
 				cacheSystemConfig.Caches.Add (cacheIL1);
@@ -1878,7 +1875,7 @@ namespace MinCai.Simulators.Impetus
 				CacheSystemConfig.connect (cacheIL1, cacheL2_1, net1);
 				
 				//connect node with l1 cache
-				NodeConfig node = new NodeConfig (core + "", core, 0, cacheIL1, cacheDL1);
+				NodeConfig node = new NodeConfig (core + "", core, 0, cacheIL1.Name, cacheDL1.Name);
 				cacheSystemConfig.Nodes.Add (node);
 			}
 			
@@ -1929,7 +1926,7 @@ namespace MinCai.Simulators.Impetus
 			cacheSystemConfig.CacheGeometries.Add (geometryL3);
 			
 			//l3 cache
-			CacheConfig cacheL3 = new CacheConfig ("l3", geometryL3, null, null);
+			CacheConfig cacheL3 = new CacheConfig ("l3", geometryL3.Name, null, null);
 			cacheSystemConfig.Caches.Add (cacheL3);
 			
 			//connect l3 cache with main memory
@@ -1937,14 +1934,14 @@ namespace MinCai.Simulators.Impetus
 			
 			for (uint core = 0; core < 4; core++) {
 				//l1 cache
-				CacheConfig cacheIL1 = new CacheConfig ("il1-" + core, geometryL1I, null, null);
-				CacheConfig cacheDL1 = new CacheConfig ("dl1-" + core, geometryL1D, null, null);
+				CacheConfig cacheIL1 = new CacheConfig ("il1-" + core, geometryL1I.Name, null, null);
+				CacheConfig cacheDL1 = new CacheConfig ("dl1-" + core, geometryL1D.Name, null, null);
 				
 				cacheSystemConfig.Caches.Add (cacheIL1);
 				cacheSystemConfig.Caches.Add (cacheDL1);
 				
 				//l2 cache
-				CacheConfig cacheL2 = new CacheConfig ("l2-" + core, geometryL2, null, null);
+				CacheConfig cacheL2 = new CacheConfig ("l2-" + core, geometryL2.Name, null, null);
 				cacheSystemConfig.Caches.Add (cacheL2);
 				
 				//connect l1 cache with l2 cache
@@ -1956,7 +1953,7 @@ namespace MinCai.Simulators.Impetus
 				
 				//connect node with l1 cache
 				for (uint thread = 0; thread < 2; thread++) {
-					NodeConfig node = new NodeConfig ((core * 2 + thread) + "", core, thread, cacheIL1, cacheDL1);
+					NodeConfig node = new NodeConfig ((core * 2 + thread) + "", core, thread, cacheIL1.Name, cacheDL1.Name);
 					cacheSystemConfig.Nodes.Add (node);
 				}
 			}
@@ -1990,7 +1987,7 @@ namespace MinCai.Simulators.Impetus
 			cacheSystemConfig.CacheGeometries.Add (geometryL2);
 			
 			//l2 cache
-			CacheConfig cacheL2 = new CacheConfig ("l2", geometryL2, null, null);
+			CacheConfig cacheL2 = new CacheConfig ("l2", geometryL2.Name, null, null);
 			cacheSystemConfig.Caches.Add (cacheL2);
 			
 			//connect l2 cache with main memory
@@ -1998,8 +1995,8 @@ namespace MinCai.Simulators.Impetus
 			
 			//l1 cache
 			for (uint core = 0; core < cores; core++) {
-				CacheConfig cacheIL1 = new CacheConfig ("il1-" + core, geometryL1, null, null);
-				CacheConfig cacheDL1 = new CacheConfig ("dl1-" + core, geometryL1, null, null);
+				CacheConfig cacheIL1 = new CacheConfig ("il1-" + core, geometryL1.Name, null, null);
+				CacheConfig cacheDL1 = new CacheConfig ("dl1-" + core, geometryL1.Name, null, null);
 				
 				cacheSystemConfig.Caches.Add (cacheIL1);
 				cacheSystemConfig.Caches.Add (cacheDL1);
@@ -2010,7 +2007,7 @@ namespace MinCai.Simulators.Impetus
 				
 				//connect node with l1 cache
 				for (uint thread = 0; thread < threads; thread++) {
-					NodeConfig node = new NodeConfig ((core * threads + thread) + "", core, thread, cacheIL1, cacheDL1);
+					NodeConfig node = new NodeConfig ((core * threads + thread) + "", core, thread, cacheIL1.Name, cacheDL1.Name);
 					cacheSystemConfig.Nodes.Add (node);
 				}
 			}
@@ -3609,10 +3606,7 @@ namespace MinCai.Simulators.Impetus
 
 			public override XmlConfigFile Save (Simulation simulation)
 			{
-				XmlConfigFile xmlConfig = new XmlConfigFile ("Simulation");
-				xmlConfig["fileName"] = simulation.FileName;
-				xmlConfig["title"] = simulation.Title;
-				xmlConfig["cwd"] = simulation.Cwd;
+				XmlConfigFile xmlConfig = new XmlConfigFile (simulation.FileName, "Simulation");
 				
 				xmlConfig.Entries.Add (PipelineConfig.Serializer.SingleInstance.Save (simulation.PipelineConfig));
 				xmlConfig.Entries.Add (CacheSystemConfig.Serializer.SingleInstance.Save (simulation.CacheSystemConfig));
@@ -3626,22 +3620,20 @@ namespace MinCai.Simulators.Impetus
 
 			public override Simulation Load (XmlConfigFile xmlConfigFile)
 			{
-				string fileName = xmlConfigFile["fileName"];
-				string title = xmlConfigFile["title"];
-				string cwd = xmlConfigFile["cwd"];
+				string fileName = xmlConfigFile.FileName;
 				
 				int numEntries = xmlConfigFile.Entries.Count;
 				
 				int i = 0;
 				
-				PipelineConfig pipelineConfig = PipelineConfig.Serializer.SingleInstance.Load (xmlConfigFile.Entries[i++]); //1
-				CacheSystemConfig cacheSystemConfig = CacheSystemConfig.Serializer.SingleInstance.Load (xmlConfigFile.Entries[i++]); //2
-				ContextConfig contextConfig = ContextConfig.Serializer.SingleInstance.Load (xmlConfigFile.Entries[i++]); //3
+				PipelineConfig pipelineConfig = PipelineConfig.Serializer.SingleInstance.Load (xmlConfigFile.Entries[i++]);
+				CacheSystemConfig cacheSystemConfig = CacheSystemConfig.Serializer.SingleInstance.Load (xmlConfigFile.Entries[i++]);
+				ContextConfig contextConfig = ContextConfig.Serializer.SingleInstance.Load (xmlConfigFile.Entries[i++]);
 				
-				PipelineReport pipelineReport = i < numEntries ? PipelineReport.Serializer.SingleInstance.Load (xmlConfigFile.Entries[i++]) : null; 
+				PipelineReport pipelineReport = i < numEntries ? PipelineReport.Serializer.SingleInstance.Load (xmlConfigFile.Entries[i++]) : null;
 				CacheSystemReport cacheSystemReport = i < numEntries ? CacheSystemReport.Serializer.SingleInstance.Load (xmlConfigFile.Entries[i++]) : null;
 				
-				Simulation simulation = new Simulation (fileName, title, cwd, pipelineConfig, cacheSystemConfig, contextConfig);
+				Simulation simulation = new Simulation (fileName, pipelineConfig, cacheSystemConfig, contextConfig);
 				simulation.PipelineReport = pipelineReport;
 				simulation.CacheSystemReport = cacheSystemReport;
 				
@@ -3651,11 +3643,10 @@ namespace MinCai.Simulators.Impetus
 			public static Serializer SingleInstance = new Serializer ();
 		}
 
-		public Simulation (string fileName, string title, string cwd, PipelineConfig pipelineConfig, CacheSystemConfig cacheSystemConfig, ContextConfig contextConfig)
+		public Simulation (string fileName, PipelineConfig pipelineConfig, CacheSystemConfig cacheSystemConfig, ContextConfig contextConfig)
 		{
 			this.FileName = fileName;
-			this.Title = title;
-			this.Cwd = cwd;
+			
 			this.PipelineConfig = pipelineConfig;
 			this.CacheSystemConfig = cacheSystemConfig;
 			this.ContextConfig = contextConfig;
@@ -3681,7 +3672,7 @@ namespace MinCai.Simulators.Impetus
 			this.CacheSystemConfig.WriteTo (this.Cwd + Path.DirectorySeparatorChar + POSTFIX_CACHE_CONFIG_FILE);
 			this.ContextConfig.WriteTo (this.Cwd + Path.DirectorySeparatorChar + POSTFIX_CONTEXT_CONFIG_FILE);
 			
-			this.PipelineConfig.Julie.WriteTo(this.Cwd + Path.DirectorySeparatorChar + PipelineConfig.JulieConfig.CTX_TO_MAPPINGS_FILE_NAME);
+			this.PipelineConfig.Julie.WriteTo (this.Cwd + Path.DirectorySeparatorChar + PipelineConfig.JulieConfig.CTX_TO_MAPPINGS_FILE_NAME);
 			
 			string fileNameBootstrap = this.Cwd + Path.DirectorySeparatorChar + BOOTSTRAP_FILE;
 			
@@ -3728,10 +3719,15 @@ namespace MinCai.Simulators.Impetus
 			}
 		}
 
-		public string Title { get; set; }
-		public string Cwd { get; set; }
-		
-		public string FileName {get;set;}
+		public string Title {
+			get { return Path.GetFileNameWithoutExtension (this.FileName); }
+		}
+
+		public string Cwd {
+			get { return Path.GetDirectoryName (this.FileName) + Path.DirectorySeparatorChar + this.Title; }
+		}
+
+		public string FileName { get; set; }
 
 		public PipelineConfig PipelineConfig { get; set; }
 		public CacheSystemConfig CacheSystemConfig { get; set; }

@@ -1,18 +1,13 @@
 using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.Drawing.Imaging;
-using Gtk;
 using MinCai.Simulators.Impetus;
 
 namespace ImpetusSharp.Demo1
 {
-	class MainClass
+	class Startup
 	{
 		public static void Main (string[] args)
 		{
-//			Application.Init ();
-			
 			Simulator simulator = new Simulator ();
 			
 //			string simulationsCwd = "/home/itecgo/Julie/Results/" + DateTime.Now.ToString ("yyyyMMdd_HHmmss");
@@ -23,21 +18,17 @@ namespace ImpetusSharp.Demo1
 //			cDoDetailedSimulation (simulationsCwd, WorkloadSet.OldenCustom1, cacheProfilerEnabled);
 //			simulator.DoDetailedSimulation (simulationsCwd, WorkloadSet.CPU2006, cacheProfilerEnabled);
 			
-//			MainWindow win = new MainWindow ();
-//			win.Show ();
-//			Application.Run ();
-			
 			List<Simulation> simulations = new List<Simulation> ();
 			
-			simulations.Add (Simulation.Serializer.SingleInstance.LoadXML ("/home/itecgo/Julie/Simulations/Step2/mst_original_Q6600.xml"));
-			simulations.Add (Simulation.Serializer.SingleInstance.LoadXML ("/home/itecgo/Julie/Simulations/Step2/mst_original_Corei7_930.xml"));
-			simulations.Add (Simulation.Serializer.SingleInstance.LoadXML ("/home/itecgo/Julie/Simulations/Step2/mst_prepush_Q6600.xml"));
-			simulations.Add (Simulation.Serializer.SingleInstance.LoadXML ("/home/itecgo/Julie/Simulations/Step2/mst_prepush_Corei7_930.xml"));
+//			simulations.Add (Simulation.Serializer.SingleInstance.LoadXML ("/home/itecgo/Julie/Simulations/Step3/mst_original_Q6600.xml"));
+			simulations.Add (Simulation.Serializer.SingleInstance.LoadXML ("/home/itecgo/Julie/Simulations/Step3/mst_original_Corei7_930.xml"));
+//			simulations.Add (Simulation.Serializer.SingleInstance.LoadXML ("/home/itecgo/Julie/Simulations/Step3/mst_prepush_Q6600.xml"));
+//			simulations.Add (Simulation.Serializer.SingleInstance.LoadXML ("/home/itecgo/Julie/Simulations/Step3/mst_prepush_Corei7_930.xml"));
 			
-			simulations.Add (Simulation.Serializer.SingleInstance.LoadXML ("/home/itecgo/Julie/Simulations/Step2/em3d_original_Q6600.xml"));
-			simulations.Add (Simulation.Serializer.SingleInstance.LoadXML ("/home/itecgo/Julie/Simulations/Step2/em3d_original_Corei7_930.xml"));
-			simulations.Add (Simulation.Serializer.SingleInstance.LoadXML ("/home/itecgo/Julie/Simulations/Step2/em3d_prepush_Q6600.xml"));
-			simulations.Add (Simulation.Serializer.SingleInstance.LoadXML ("/home/itecgo/Julie/Simulations/Step2/em3d_prepush_Corei7_930.xml"));
+//			simulations.Add (Simulation.Serializer.SingleInstance.LoadXML ("/home/itecgo/Julie/Simulations/Step3/em3d_original_Q6600.xml"));
+//			simulations.Add (Simulation.Serializer.SingleInstance.LoadXML ("/home/itecgo/Julie/Simulations/Step3/em3d_original_Corei7_930.xml"));
+//			simulations.Add (Simulation.Serializer.SingleInstance.LoadXML ("/home/itecgo/Julie/Simulations/Step3/em3d_prepush_Q6600.xml"));
+//			simulations.Add (Simulation.Serializer.SingleInstance.LoadXML ("/home/itecgo/Julie/Simulations/Step3/em3d_prepush_Corei7_930.xml"));
 			
 			simulator.DoBatchExecute (simulations, false, false);
 			

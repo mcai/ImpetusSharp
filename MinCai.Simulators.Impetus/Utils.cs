@@ -243,9 +243,12 @@ namespace MinCai.Common
 
 	public sealed class XmlConfigFile : XmlConfig
 	{
-		public XmlConfigFile (string typeName) : base(typeName)
+		public XmlConfigFile (string fileName, string typeName) : base(typeName)
 		{
+			this.FileName = fileName;
 		}
+		
+		public string FileName {get; private set;}
 	}
 
 	public delegate XmlConfig SaveEntryDelegate<T> (T entry);
@@ -420,7 +423,7 @@ namespace MinCai.Common
 			doc.Load (reader);
 			reader.Close ();
 			
-			XmlConfigFile xmlConfigFile = new XmlConfigFile (doc.DocumentElement.Name);
+			XmlConfigFile xmlConfigFile = new XmlConfigFile (xmlFileName, doc.DocumentElement.Name);
 			
 			foreach (XmlAttribute attribute in doc.DocumentElement.Attributes) {
 				xmlConfigFile[attribute.Name] = attribute.Value;

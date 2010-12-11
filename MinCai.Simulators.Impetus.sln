@@ -3,25 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 9.00
 # Visual Studio 2005
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinCai.Simulators.Impetus", "MinCai.Simulators.Impetus\MinCai.Simulators.Impetus.csproj", "{47C6577B-1CF7-4648-A52C-3636F419E270}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinCai.Simulators.Impetus.Demo1", "MinCai.Simulators.Impetus.Demo1\MinCai.Simulators.Impetus.Demo1.csproj", "{314BA607-F35E-4953-B1ED-C12F36C7414A}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{314BA607-F35E-4953-B1ED-C12F36C7414A}.Debug|x86.ActiveCfg = Debug|x86
-		{314BA607-F35E-4953-B1ED-C12F36C7414A}.Debug|x86.Build.0 = Debug|x86
-		{314BA607-F35E-4953-B1ED-C12F36C7414A}.Release|x86.ActiveCfg = Release|x86
-		{314BA607-F35E-4953-B1ED-C12F36C7414A}.Release|x86.Build.0 = Release|x86
 		{47C6577B-1CF7-4648-A52C-3636F419E270}.Debug|x86.ActiveCfg = Debug|x86
 		{47C6577B-1CF7-4648-A52C-3636F419E270}.Debug|x86.Build.0 = Debug|x86
 		{47C6577B-1CF7-4648-A52C-3636F419E270}.Release|x86.ActiveCfg = Release|x86
 		{47C6577B-1CF7-4648-A52C-3636F419E270}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = MinCai.Simulators.Impetus.Demo1\MinCai.Simulators.Impetus.Demo1.csproj
+		StartupItem = MinCai.Simulators.Impetus\MinCai.Simulators.Impetus.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1
 		$1.FileWidth = 120

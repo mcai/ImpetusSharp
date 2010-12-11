@@ -1,21 +1,11 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" ctype="Workspace" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="MinCai.Simulators.Impetus.Demo1/Main.cs" ctype="Workbench">
-    <Files>
-      <File FileName="../../Archives/winback/开发/CDMS 2008/Src/Core/Entities.cs" Line="3" Column="19" />
-      <File FileName="../../Archives/winback/开发/CDMS 2008/Src/Core/Users.cs" Line="1" Column="1" />
-      <File FileName="MinCai.Simulators.Impetus/Utils.cs" Line="23" Column="34" />
-      <File FileName="MinCai.Simulators.Impetus.Demo1/Main.cs" Line="105" Column="4" />
-      <File FileName="MinCai.Simulators.Impetus/Simulation.cs" Line="3712" Column="36" />
-    </Files>
+  <MonoDevelop.Ide.Workbench ctype="Workbench">
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="MinCai.Simulators.Impetus" expanded="True">
+          <Node name="MinCai.Simulators.Impetus" expanded="True" selected="True">
             <Node name="References" expanded="True" />
-          </Node>
-          <Node name="MinCai.Simulators.Impetus.Demo1" expanded="True">
-            <Node name="Main.cs" selected="True" />
           </Node>
         </State>
       </Pad>
